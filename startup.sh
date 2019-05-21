@@ -40,7 +40,8 @@ CLASSPATH="corda-4.0.jar:\
 ./jars/netty-resolver-4.1.22.Final.jar:\
 ./jars/netty-buffer-4.1.22.Final.jar:\
 ./jars/netty-codec-4.1.22.Final.jar:\
-./jars/netty-handler-4.1.22.Final.jar"
+./jars/netty-handler-4.1.22.Final.jar:\
+./helpers.jar"
 
 
 echo $CLASSPATH
