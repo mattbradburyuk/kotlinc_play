@@ -12,6 +12,8 @@ fun pretty(obj: Any){
   41 -> )
   [ -> 91
   ] -> 93
+  { -> 123
+  } -> 125
   , -> 44
 
 */
@@ -30,6 +32,11 @@ fun pretty(obj: Any){
                 offset = offset + TAB
                 newStr = "$newStr$i\n${addspace(offset)}"
             }
+            // {
+            123.toChar() -> {
+                offset = offset + TAB
+                newStr = "$newStr$i\n${addspace(offset)}"
+            }
             // ,
             44.toChar() -> {
               newStr = "$newStr$i\n${addspace(offset)}"
@@ -43,6 +50,11 @@ fun pretty(obj: Any){
             93.toChar() -> {
               offset = offset - TAB
               newStr = "$newStr$i"
+            }
+            // }
+            125.toChar() -> {
+                offset = offset - TAB
+                newStr = "$newStr$i"
             }
             // space
             32.toChar() -> {
