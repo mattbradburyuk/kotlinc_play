@@ -1,6 +1,9 @@
 package helpers
 
-fun makeStringPretty(str: String){
+//fun makeStringPretty(str: String){
+fun pretty(obj: Any){
+
+    val str = obj.toString()
 
     var offset = 0
     val TAB = 4
