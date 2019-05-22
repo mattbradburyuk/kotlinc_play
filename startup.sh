@@ -3,18 +3,12 @@
 
 echo "hello, this is a startup script"
 
-# kotlinc-jvm -classpath corda-rpc-4.0.jar
-
-# kotlinc-jvm -classpath corda-4.0.jar:corda-core-4.0.jar:corda-rpc-4.0.jar
-
-# kotlinc-jvm -classpath corda-core-4.0.jar:corda-rpc-4.0.jar:slf4j-api-1.7.25.jar
-
 rm -r jars
 mkdir jars
 
 unzip corda-4.0.jar -d jars
 
-CLASSPATH="corda-4.0.jar:\
+CORDACLASSPATH="corda-4.0.jar:\
 ./jars/corda-core-4.0.jar:\
 ./jars/corda-rpc-4.0.jar:\
 ./jars/slf4j-api-1.7.25.jar:\
@@ -40,8 +34,28 @@ CLASSPATH="corda-4.0.jar:\
 ./jars/netty-resolver-4.1.22.Final.jar:\
 ./jars/netty-buffer-4.1.22.Final.jar:\
 ./jars/netty-codec-4.1.22.Final.jar:\
-./jars/netty-handler-4.1.22.Final.jar:\
-./helpers.jar"
+./jars/netty-handler-4.1.22.Final.jar"
+
+
+cd cordapps
+
+CORDAPPSCLASSPATH=""
+
+for FILE in *
+    do
+        ext="${FILE##*.}"
+        if [[ $ext == "jar" ]]
+            then
+                CORDAPPSCLASSPATH="$CORDAPPSCLASSPATH:./cordapps/$FILE"
+        fi
+    echo $CORDAPPSCLASSPATH
+    done
+
+cd ..
+
+
+
+CLASSPATH=$CORDACLASSPATH$CORDAPPSCLASSPATH":./helpers.jar"
 
 
 echo $CLASSPATH
