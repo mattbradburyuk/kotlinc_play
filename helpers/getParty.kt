@@ -18,5 +18,4 @@ fun getParty(proxy: CordaRPCOps): Party{
 
     return legalIdentitiesAndCerts[0].party
 
-
 }

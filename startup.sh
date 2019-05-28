@@ -40,7 +40,6 @@ CORDACLASSPATH="corda-4.0.jar:\
 cd cordapps
 
 CORDAPPSCLASSPATH=""
-
 for FILE in *
     do
         ext="${FILE##*.}"

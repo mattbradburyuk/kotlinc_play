@@ -13,3 +13,5 @@ to do:
     - add a cordapps directory - then include the cordapps in the classpath need to work out what needs to be imported, can this be worked out automatically.
 
 
+add code examples to help with syntax
+
